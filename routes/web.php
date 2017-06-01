@@ -25,7 +25,7 @@ Route::post('/map/zone/store',function (\Illuminate\Http\Request $request){
     $polycoords = "31.36753147859411 29.97596614896632,31.36753147859411 29.97596614896632";
     $res = \App\Zone::create([
 //        'polygon' => \DB::raw('GeomFromText(POLYGON(31.36753147859411 29.97596614896632,31.36753147859411 29.97596614896632)))')
-            'polygon' => \DB::raw('GeomFromText(POLYGON(31.36753147859411 29.97596614896632,31.36753147859411 29.97596614896632)')
+            'polygon' => \DB::raw("GeomFromText('POINT(31.36753147859411 29.97596614896632)')")
     ]);
     return ['her' => $res];
     $res = DB::table('zone')->insert(
