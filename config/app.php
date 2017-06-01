@@ -166,8 +166,7 @@ return [
         /*
          * Package Service Providers...
          */
-
-        //
+        Phaza\LaravelPostgis\DatabaseServiceProvider::class,
 
         /*
          * Application Service Providers...
