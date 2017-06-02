@@ -43,11 +43,16 @@ function mapLocation(point){
 
 function insertPoints(){
     if(pointsMaker.length > 2){
-        //pointsMaker.push(pointsMaker[0]);
+        pointsMaker.push(pointsMaker[0]);
+        var all_points = 'POLYGON((' + pointsMaker[0].lat + ' ' + pointsMaker[0].lng;
+        for (var i = 1, len = pointsMaker.length; i < len; i++) {
+            all_points += ','+pointsMaker[i].lat+' '+pointsMaker[i].lng
+        }
+        all_points += '))';
         $.ajax({
             url: 'map/zone/store',
             type: "POST",
-            data: {points: pointsMaker},
+            data: {points: all_points},
             success: function (response) {
                 console.log(response);
             },
