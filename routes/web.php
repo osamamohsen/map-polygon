@@ -21,10 +21,7 @@ Route::get('/map', function () {
 
 Route::post('/map/zone/store',function (\Illuminate\Http\Request $request){
     try{
-        $points = $request->get('points');
-        $res = \App\Zone::create([
-            'polygon' => $points
-        ]);
+        $res = \App\Zone::create($request->all());
         return ["msg" => $res];
     }catch (Exception $ex) {
         return ['exp' => $ex];

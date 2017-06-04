@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
@@ -15,9 +16,10 @@ class CreateZoneTable extends Migration
     {
         Schema::create('zone', function (Blueprint $table) {
             $table->increments('id');
-            $table->longText('polygon');
+            $table->text('area');
             $table->timestamps();
         });
+        DB::statement("alter table zone add polygon polygon");
     }
 
     /**

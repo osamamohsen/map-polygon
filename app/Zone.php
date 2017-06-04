@@ -9,7 +9,7 @@ class Zone extends Model
 {
     protected $table = "zone";
 
-    protected $fillable = ['polygon'];
+    protected $fillable = ['area','polygon'];
 
     protected $hidden = ['polygon'];
 
