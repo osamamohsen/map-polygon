@@ -12,7 +12,7 @@
 <h1>Google Map</h1>
 <h3>My Google Maps Demo</h3>
 <script type="text/javascript" src="{{ asset('/js/library/jquery.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('/js/library/maps.js') }}?key=AIzaSyAZq__OhCLFQdWHBjzs9fZaBxKOMxGpoOQ&sensor=false"></script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js??key=AIzaSyAZq__OhCLFQdWHBjzs9fZaBxKOMxGpoOQ&sensor=false"></script>
 <button onclick="insertPoints()" id="#submit_polygon" type="submit">Add Polygon</button>
 <div id="map"></div>
 </body>

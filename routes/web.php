@@ -18,10 +18,8 @@ Route::get('/', function () {
 Route::get('/map', function () {
     return view('map.map');
 });
-use Illuminate\Support\Facades\DB;
 
 Route::post('/map/zone/store',function (\Illuminate\Http\Request $request){
-
     try{
         $points = $request->get('points');
         $res = \App\Zone::create([
@@ -31,18 +29,14 @@ Route::post('/map/zone/store',function (\Illuminate\Http\Request $request){
     }catch (Exception $ex) {
         return ['exp' => $ex];
     }
-
 });
 
 Route::get('/all',function(){
-    $query = \App\Zone::where('id',3)->get();
+    $query = \App\Zone::where('id',2)->get();
     return $query;
 });
 
-Route::get('/map/item',function(){
-    $res = \App\Zone::create([
-        'polygon' => \DB::raw("GeomFromText('POLYGON((31.36753147859411 29.97596614896632,31.36753147859411 29.97596614896632))')")
-    ]);
-
-    return ['rest'=>$res];
+Route::post('/map/polygons',function (){
+    $polygons = \App\Zone::all();
+    return ['polygons' => $polygons];
 });
